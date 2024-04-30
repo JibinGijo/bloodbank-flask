@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Donors</title>
+</head>
+<body>
+    <h1>Search Donors</h1>
+    <form method="post">
+        <label for="blood_type">Blood Type:</label><br>
+        <input type="text" id="blood_type" name="blood_type"><br>
+        <label for="city">City:</label><br>
+        <input type="text" id="city" name="city"><br>
+        <label for="state">State:</label><br>
+        <input type="text" id="state" name="state"><br><br>
+        <input type="submit" value="Search">
+    </form>
+    {% if donors %}
+        <h2>Donors Found:</h2>
+        <ul>
+            {% for donor in donors %}
+                <li>Name: {{ donor[1] }}, Blood Type: {{ donor[2] }}, Phone Number: {{ donor[3] }}, City: {{ donor[4] }}, State: {{ donor[5] }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
